@@ -1,10 +1,10 @@
 # TodoList Kanban React
 
 ## Todo List Screenshot
-![Todo List](./src/assets/todolist.png)
+<img src="./assets/todolist.png" width="300" height="500"/>
 
 ## Kanban Screenshot
-![Kanban](./src/assets/kanban.png)
+<img src="./assets/kanban.png" width="500" height="500"/>
 
 A Kanban-style and todo list application built with React, allowing users to manage tasks in both a traditional todo list and a Kanban board view.
 
