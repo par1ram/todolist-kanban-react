@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# TodoList Kanban React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Kanban-style todo list application built with React, allowing users to manage tasks in both a traditional todo list and a Kanban board view.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Todo List View:**
+    *   Create, edit, and delete tasks.
+    *   Mark tasks as complete.
+    *   Automatically sorts completed tasks to the bottom.
+    *   Persists data to local storage.
 
-## Expanding the ESLint configuration
+*   **Kanban Board View:**
+    *   Create, edit, and delete tasks within columns.
+    *   Create, delete, and rename columns.
+    *   Drag and drop tasks between columns.
+    *   Drag and drop columns to reorder the board.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1.  Clone the repository:
+    ```bash
+    git clone <repository_url>
+    ```
+2.  Install dependencies:
+    ```bash
+    cd todolist-kanban-react
+    npm install
+    ```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Project Structure
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+*   `src/`: Contains the source code for the application.
+    *   `components/`: React components.
+        *   `KanbanBoard.tsx`: The Kanban board component.
+        *   `ColumnContainer.tsx`:  Manages individual columns on the Kanban board.
+        *   `TaskCard.tsx`: Represents a single task on the Kanban board.
+        *   `Todo.tsx`: The traditional todo list component.
+        *   `TodoItems.tsx`:  Represents a single task in the todo list.
+        *   `Navbar.tsx`:  Navigation between views.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+    *   `types.ts`: Type definitions.
+    *   `App.tsx`: Main application component.
+*   `vite.config.ts`: Vite configuration file.
+*   `vite-env.d.ts`: Vite environment type declarations.
+
+## Data Persistence
+
+*   **Todo List:**  Uses local storage to persist tasks. Data is saved automatically whenever the todo list changes.
+*   **Kanban Board:** Currently, *no* persistence mechanism is implemented for the Kanban board.  Data will be lost on page refresh.  This is a key area for future improvement.
+
+## Technologies Used
+
+*   React
+*   TypeScript
+*   Vite
+*   Lucide React (for icons)
+*   dnd-kit (for drag and drop functionality)
+
+## Future Enhancements
+
+*   **Kanban Board Persistence:** Implement data persistence for the Kanban board (e.g., local storage, backend integration).
+*   **Task Details:** Add more detailed information to tasks (descriptions, due dates, subtasks, assignees).
+*   **User Authentication:** Allow users to log in and manage their own boards and tasks.
+*   **Improved Styling and UI/UX:** Enhance the visual appeal and user experience.
+*   **Collaboration Features:**  Enable multiple users to collaborate on boards.
+
+
+## Contributing
+
+Contributions are welcome!  Please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
