@@ -61,20 +61,3 @@ A simple Kanban-style todo list application built with React, allowing users to 
 *   Vite
 *   Lucide React (for icons)
 *   dnd-kit (for drag and drop functionality)
-
-## Future Enhancements
-
-*   **Kanban Board Persistence:** Implement data persistence for the Kanban board (e.g., local storage, backend integration).
-*   **Task Details:** Add more detailed information to tasks (descriptions, due dates, subtasks, assignees).
-*   **User Authentication:** Allow users to log in and manage their own boards and tasks.
-*   **Improved Styling and UI/UX:** Enhance the visual appeal and user experience.
-*   **Collaboration Features:**  Enable multiple users to collaborate on boards.
-
-
-## Contributing
-
-Contributions are welcome!  Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
