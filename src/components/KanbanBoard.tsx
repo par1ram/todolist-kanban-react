@@ -14,12 +14,29 @@ import {
 } from '@dnd-kit/core'
 import { arrayMove, SortableContext } from '@dnd-kit/sortable'
 import { createPortal } from 'react-dom'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import TaskCard from './TaskCard'
 
 export default function KanbanBoard() {
-	const [columns, setColumns] = useState<Column[]>([])
-	const [tasks, setTasks] = useState<Task[]>([])
+	const [columns, setColumns] = useState<Column[]>(() => {
+		const savedColumns = localStorage.getItem('kanbanColumns')
+		return savedColumns ? JSON.parse(savedColumns) : []
+	})
+
+	const [tasks, setTasks] = useState<Task[]>(() => {
+		const savedTasks = localStorage.getItem('kanbanTasks')
+		return savedTasks ? JSON.parse(savedTasks) : []
+	})
+
+	// Сохранение колонок в Local Storage при изменении
+	useEffect(() => {
+		localStorage.setItem('kanbanColumns', JSON.stringify(columns))
+	}, [columns])
+
+	// Сохранение задач в Local Storage при изменении
+	useEffect(() => {
+		localStorage.setItem('kanbanTasks', JSON.stringify(tasks))
+	}, [tasks])
 
 	const columnsId = useMemo(() => columns.map((el) => el.id), [columns])
 
